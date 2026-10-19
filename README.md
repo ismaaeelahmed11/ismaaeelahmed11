@@ -17,10 +17,10 @@ I enjoy investigating why something has failed, understanding the underlying sys
 
 Short introductions to what I built, how it works and the problems I solved.
 
-- **[Watch: AWS ECS Fargate — 1:17](https://github.com/ismaaeelahmed11/ismaaeelahmed11/blob/main/ECS-Recruiter-Pitch.mp4)**  
+- **[Watch: AWS ECS Fargate — 1:17](https://youtu.be/Jk4jOjjVlnQ)**  
   Docker, Terraform, infrastructure automation and IAM troubleshooting.
 
-- **[Watch: AWS EKS — 1:32](https://github.com/ismaaeelahmed11/ismaaeelahmed11/blob/main/EKS-Recruiter-Pitch.mp4)**  
+- **[Watch: AWS EKS — 1:32](https://youtu.be/Asa_4qiS6Fo)**  
   Kubernetes, GitOps, monitoring and persistent-storage troubleshooting.
 
 ---
