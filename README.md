@@ -1,125 +1,195 @@
 # Ismaaeel Ahmed
 
-### DevOps & Cloud Engineering | AWS · Terraform · Kubernetes · CI/CD
+### DevOps & Cloud Engineering | AWS · Kubernetes · Terraform · CI/CD
 
-I'm a UK-based DevOps bootcamp graduate with practical experience provisioning AWS infrastructure, containerising applications and automating deployment workflows.
+I build and automate cloud infrastructure, containerised applications and Kubernetes environments, with a focus on reliable deployments, infrastructure as code and troubleshooting.
 
-After completing nine modules, I applied my learning through two AWS portfolio projects: an ECS Fargate application deployment and an EKS Kubernetes platform. My repositories include Terraform code, GitHub Actions workflows, architecture diagrams, deployment screenshots and troubleshooting notes.
+My hands-on portfolio covers three infrastructure projects: an AWS EKS platform with GitOps and monitoring, an automated AWS ECS Fargate deployment, and a self-managed Kubernetes cluster built using kubeadm.
 
-I enjoy investigating why something has failed, understanding the underlying system and documenting the solution.
+Across these projects, I've worked with Terraform, Docker, Kubernetes, GitHub Actions, AWS networking, IAM, monitoring and Linux systems. My repositories include infrastructure code, deployment workflows, architecture diagrams, technical documentation and evidence of problems investigated and resolved.
 
-**Seeking junior DevOps, Cloud Engineer and Platform Engineering opportunities in the UK.**
+I completed a nine-module DevOps engineering bootcamp and have continued building independent projects to develop deeper experience with infrastructure and Kubernetes operations.
+
+**Open to DevOps, Cloud Engineering and Platform Engineering opportunities across the UK.**
 
 [LinkedIn](https://www.linkedin.com/in/ismaaeelahmed) · [Email](mailto:ismaaeelahmed11@gmail.com) · [Explore My Portfolio](https://github.com/ismaaeelahmed11/devops-learning)
 
 ---
 
-## Featured Projects
+## Featured Engineering Projects
 
-### [AWS EKS — Kubernetes, GitOps & Monitoring](https://github.com/ismaaeelahmed11/eks-project)
+### 01 · [AWS EKS — Kubernetes, GitOps & Monitoring](https://github.com/ismaaeelahmed11/eks-project)
 
-An AWS Kubernetes portfolio project deploying IT-Tools with HTTPS, GitOps reconciliation and cluster monitoring.
+**Infrastructure as Code · Kubernetes · GitOps · Observability · CI/CD**
 
-**What I implemented**
+Built an AWS Kubernetes environment for deploying and operating the IT-Tools application, incorporating automated infrastructure provisioning, HTTPS ingress, GitOps reconciliation, monitoring and security scanning.
 
-- Provisioned a VPC, EKS cluster and managed node group using Terraform.
-- Configured application access with NGINX Ingress, cert-manager and ExternalDNS.
-- Set up Argo CD to reconcile Kubernetes resources from Git.
-- Installed Prometheus and Grafana for cluster monitoring.
-- Created GitHub Actions workflows using OIDC to authenticate with AWS.
-- Integrated Checkov and Trivy scans into the application workflow.
-- Configured application resource requests, limits, readiness and liveness probes.
+**Engineering implementation**
 
-**Problems I investigated and resolved**
+- Provisioned AWS networking, an EKS cluster and a managed node group using modular Terraform configurations.
+- Configured NGINX Ingress, cert-manager and ExternalDNS for application routing, TLS certificates and DNS management.
+- Implemented Argo CD to reconcile Kubernetes application resources from Git.
+- Installed Prometheus and Grafana for metrics collection and monitoring dashboards.
+- Built GitHub Actions workflows using AWS OIDC authentication instead of long-lived access keys.
+- Integrated Checkov and Trivy for infrastructure and container security scanning.
+- Configured Kubernetes readiness and liveness probes, resource requests and limits.
 
-- Monitoring workloads could not obtain persistent storage: configured the EBS CSI driver and the required IAM permissions.
-- Pods remained pending because of node capacity limits: investigated the scheduling constraints and adjusted the node group.
-- Cluster access configuration conflicted: documented the resolution using explicit EKS access entries.
+**Troubleshooting and technical challenges**
 
-**Stack:** AWS EKS · Terraform · Kubernetes · Helm · Argo CD · GitHub Actions · Prometheus · Grafana
+- **Persistent storage:** Investigated monitoring workloads unable to provision storage, then configured the EBS CSI driver and required IAM permissions.
+- **Kubernetes scheduling:** Diagnosed pods remaining `Pending` because of node capacity constraints and adjusted the managed node group.
+- **Cluster authentication:** Investigated conflicting access configuration and documented the resolution using explicit EKS access entries.
 
-[View Project, Architecture & Troubleshooting](https://github.com/ismaaeelahmed11/eks-project)
+**Technologies:** AWS EKS · Terraform · Kubernetes · Helm · Argo CD · GitHub Actions · Prometheus · Grafana · NGINX Ingress · IAM
 
-### [AWS ECS Fargate — Container Deployment & Infrastructure Automation](https://github.com/ismaaeelahmed11/devops-learning/tree/main/ecs-project)
+[Explore Source Code, Architecture & Troubleshooting →](https://github.com/ismaaeelahmed11/eks-project)
 
-A Go web application deployed to ECS Fargate, served over HTTPS through an Application Load Balancer.
+---
 
-**What I implemented**
+### 02 · [AWS ECS Fargate — Container Deployment & Infrastructure Automation](https://github.com/ismaaeelahmed11/devops-learning/tree/main/ecs-project)
 
-- Containerised the application using a multi-stage Docker build and a minimal scratch-based image.
-- Published container images to Amazon ECR.
-- Organised infrastructure into eight Terraform modules.
-- Configured S3 remote state with native state locking.
-- Created GitHub Actions workflows for image builds, Terraform planning, deployment and teardown.
-- Used OIDC authentication for AWS access without storing long-lived AWS access keys in GitHub.
-- Configured HTTPS with ACM and application health checks.
+**AWS Infrastructure · Terraform · Docker · CI/CD · Networking**
 
-**Problems I investigated and resolved**
+Built an end-to-end container deployment for a Go web application on AWS ECS Fargate, with infrastructure managed through Terraform and deployments automated through GitHub Actions.
 
-- ECS tasks could not create their CloudWatch log group: identified and added the missing permission.
-- GitHub Actions workflows did not trigger: moved workflow definitions to the repository-level workflow directory.
-- Terraform state locking was unsupported by the CI version: aligned the pipeline's Terraform version with the backend configuration.
+**Engineering implementation**
 
-**Stack:** AWS ECS Fargate · ECR · ALB · ACM · CloudWatch · Docker · Terraform · GitHub Actions
+- Containerised the application using a multi-stage Docker build and a minimal scratch-based runtime image.
+- Published container images to Amazon Elastic Container Registry (ECR).
+- Organised AWS infrastructure into eight Terraform modules.
+- Configured an S3 remote backend using native Terraform state locking.
+- Automated container builds, Terraform planning, application deployment and infrastructure teardown with GitHub Actions.
+- Used GitHub Actions OIDC authentication to access AWS without storing long-lived credentials.
+- Configured an Application Load Balancer, ACM certificates and HTTPS application access.
+- Integrated application health checks and CloudWatch logging.
 
-[View Project, Architecture & Deployment Workflow](https://github.com/ismaaeelahmed11/devops-learning/tree/main/ecs-project)
+**Troubleshooting and technical challenges**
 
-> **Project scope:** These are bootcamp portfolio projects. Cloud infrastructure was destroyed after submission to avoid ongoing AWS costs. Source code, architecture diagrams, screenshots and troubleshooting documentation remain available for review.
+- **IAM permissions:** Investigated why ECS tasks could not create their CloudWatch log group and added the missing permission.
+- **CI/CD execution:** Resolved GitHub Actions workflows not triggering by correcting their repository directory structure.
+- **Terraform state management:** Identified a Terraform version incompatibility with state locking and aligned the CI environment with the backend configuration.
+
+**Technologies:** AWS ECS Fargate · ECR · ALB · ACM · CloudWatch · Docker · Terraform · GitHub Actions · IAM
+
+[Explore Source Code, Architecture & Deployment Workflow →](https://github.com/ismaaeelahmed11/devops-learning/tree/main/ecs-project)
+
+---
+
+### 03 · [Self-Managed Kubernetes — kubeadm, Networking & Cluster Operations](https://github.com/ismaaeelahmed11/kubeadm-kubernetes-lab)
+
+**Kubernetes Administration · Linux · Networking · Cluster Operations · Troubleshooting**
+
+Built and operated a two-node Kubernetes cluster on Ubuntu virtual machines using kubeadm, gaining direct experience with Kubernetes infrastructure beyond managed services such as AWS EKS.
+
+The environment uses Kubernetes v1.35.9, containerd and Calico, with an NGINX application running across four replicas on the worker node.
+
+**Engineering implementation**
+
+- Provisioned a control-plane and worker-node environment using Oracle VirtualBox and Ubuntu Linux.
+- Configured NAT, host-only networking and static IP addresses for node communication and application access.
+- Bootstrapped Kubernetes with kubeadm and configured containerd as the container runtime.
+- Installed Calico for Kubernetes pod networking.
+- Deployed NGINX using declarative Kubernetes Deployment and Service manifests.
+- Configured ClusterIP and NodePort Services for internal connectivity and application access from the Windows host.
+- Implemented CPU/memory requests and limits, readiness probes and liveness probes.
+- Tested manual horizontal scaling, pod self-healing, rolling application updates and Deployment rollback.
+- Documented infrastructure configuration, cluster operations and troubleshooting with 19 supporting screenshots.
+
+**Troubleshooting and technical challenges**
+
+- **Virtualisation performance:** Investigated repeated CPU lockups and control-plane bootstrap failures, diagnosed hardware acceleration issues and recovered the VM environment.
+- **Kubernetes access:** Investigated administrative access and RBAC issues during cluster recovery.
+- **Cluster networking and readiness:** Verified Calico networking, Kubernetes system components and node readiness.
+
+**Verified outcome:** Two Kubernetes nodes in the `Ready` state, with four available NGINX replicas running on the worker node and accessible through NodePort.
+
+**Technologies:** Kubernetes · kubeadm · Linux · containerd · Calico · NGINX · VirtualBox · Git
+
+[Explore Source Code, Architecture & Technical Evidence →](https://github.com/ismaaeelahmed11/kubeadm-kubernetes-lab) · [Cluster Setup Guide](https://github.com/ismaaeelahmed11/kubeadm-kubernetes-lab/blob/main/docs/cluster-setup.md)
+
+---
+
+> **Project context:** The ECS and EKS environments were completed as part of my DevOps training, while the kubeadm cluster was built independently to deepen my understanding of Kubernetes infrastructure. AWS resources were destroyed after project completion to avoid ongoing costs. Source code, deployment configurations, architecture diagrams and technical evidence remain available for review.
 
 ---
 
 ## Engineering Approach
 
-- **Understand before automating:** Built the ECS environment manually before recreating it with Terraform to understand how the AWS resources connect.
-- **Investigate failures:** Documented issues involving IAM permissions, Kubernetes scheduling, persistent storage and CI configuration, including their causes and resolutions.
-- **Make changes reviewable:** Used modular infrastructure code and a Terraform plan workflow for pull requests in the ECS project.
-- **Explain design decisions:** Documented why I selected ECS or EKS, how traffic reaches the application and how the deployment components fit together.
-- **Consider running costs:** Included teardown workflows and documented the decision to remove demonstration infrastructure after completion.
+My approach focuses on understanding infrastructure, building reproducible solutions and investigating problems through to resolution.
+
+- **Infrastructure as Code:** Use Terraform to define and manage cloud infrastructure, keeping configurations modular, version-controlled and reviewable.
+- **Understand before automating:** Built the ECS environment manually before reproducing the infrastructure with Terraform to understand how the underlying AWS components connect.
+- **Troubleshoot systematically:** Investigate errors through logs, configuration, permissions, networking and resource constraints rather than relying on trial and error.
+- **Understand Kubernetes beyond managed services:** Built a self-managed cluster to work directly with kubeadm, container runtimes, CNI networking, node readiness and control-plane administration.
+- **Automate delivery:** Use GitHub Actions for application builds, container publishing, infrastructure planning and deployment workflows.
+- **Build with visibility:** Incorporate CloudWatch, Prometheus and Grafana to observe application and infrastructure behaviour.
+- **Consider security:** Use OIDC authentication, IAM permissions, HTTPS and automated security scanning where appropriate.
+- **Document decisions and outcomes:** Record architecture, troubleshooting processes and operational evidence so engineering work can be reviewed and understood.
+- **Manage cloud costs:** Include infrastructure teardown workflows and remove temporary AWS demonstration environments when no longer required.
 
 ---
 
 ## Technical Skills
 
-| Area | Practical Experience |
+| Area | Technologies & Practical Experience |
 | --- | --- |
-| Linux & Scripting | File systems, permissions, processes, text processing and Bash automation |
-| Git & Collaboration Workflows | Branching, merging, rebasing, pull requests and GitHub |
-| AWS & Networking | VPC, subnets, routing, EC2, IAM, ECR, ECS Fargate, EKS, load balancing and DNS |
-| Infrastructure as Code | Terraform modules, variables, outputs, S3 remote state and state locking |
-| Containers | Dockerfiles, multi-stage builds, Docker Compose and container registries |
-| Kubernetes | Deployments, services, ingress, configuration, storage, probes and resource allocation |
-| CI/CD | GitHub Actions, automated application tests, image publishing and Terraform workflows |
-| GitOps | Argo CD application configuration and automated reconciliation |
-| Monitoring | Prometheus, Grafana and CloudWatch logs |
-| Security Practices | OIDC authentication, IAM configuration, HTTPS and Checkov/Trivy scanning |
+| **Cloud & Infrastructure** | AWS, VPC, EC2, ECS Fargate, EKS, IAM, ECR, ALB, ACM, CloudWatch, DNS |
+| **Infrastructure as Code** | Terraform, modules, variables, outputs, S3 remote state, state locking |
+| **Containers** | Docker, multi-stage Dockerfiles, Docker Compose, container registries, containerd |
+| **Kubernetes** | kubeadm, Deployments, Services, Ingress, scheduling, probes, resource management, cluster networking |
+| **CI/CD & Automation** | GitHub Actions, build and deployment workflows, automated testing, image publishing |
+| **GitOps** | Argo CD, declarative Kubernetes configuration, Git-based reconciliation |
+| **Monitoring & Observability** | Prometheus, Grafana, CloudWatch logs |
+| **Linux & Scripting** | Linux administration, Bash, processes, permissions, file systems, text processing |
+| **Networking** | TCP/IP, DNS, routing, subnetting, load balancing, NAT, host-only networking |
+| **Version Control** | Git, GitHub, branching, merging, rebasing, pull requests |
+| **Security Practices** | AWS OIDC, IAM permissions, TLS/HTTPS, Checkov, Trivy |
 
-*Skills above reflect hands-on bootcamp and portfolio experience.*
+*Experience demonstrated through hands-on engineering projects, technical exercises and DevOps training.*
 
 ---
 
-## DevOps Bootcamp — Nine Modules Completed
+## DevOps Engineering Foundations
+
+Completed nine practical modules covering infrastructure, automation, networking, cloud computing and Kubernetes.
 
 | Module | Practical Work |
 | --- | --- |
-| [Linux Fundamentals](https://github.com/ismaaeelahmed11/devops-learning/tree/main/linux) | Command-line exercises, permissions, processes and documented Bandit challenges |
-| [Bash Scripting](https://github.com/ismaaeelahmed11/devops-learning/tree/main/bash-scripting) | File operations, input handling, permission checks and backup scripting |
+| [Linux Fundamentals](https://github.com/ismaaeelahmed11/devops-learning/tree/main/linux) | Linux command-line operations, permissions, processes and documented Bandit challenges |
+| [Bash Scripting](https://github.com/ismaaeelahmed11/devops-learning/tree/main/bash-scripting) | File operations, input handling, permission checks and backup automation |
 | [Git & Version Control](https://github.com/ismaaeelahmed11/git-labs) | Branching, merging, rebasing, stashing and recovering changes |
 | [Networking](https://github.com/ismaaeelahmed11/devops-learning/tree/main/networking) | DNS, routing, subnetting and NGINX deployment on EC2 |
-| [Docker & Containers](https://github.com/ismaaeelahmed11/devops-learning/tree/main/docker) | Image builds and a multi-container Flask/Redis application |
-| [AWS Cloud](https://github.com/ismaaeelahmed11/devops-learning/tree/main/aws) | VPC configuration, public/private subnets, EC2 and application load balancing |
-| [Terraform & Infrastructure as Code](https://github.com/ismaaeelahmed11/devops-learning/tree/main/terraform) | Infrastructure provisioning and automated instance configuration |
-| [CI/CD](https://github.com/ismaaeelahmed11/devops-learning/tree/main/cicd) | GitHub Actions workflows for application testing and container publishing |
+| [Docker & Containers](https://github.com/ismaaeelahmed11/devops-learning/tree/main/docker) | Container image builds and a multi-container Flask/Redis application |
+| [AWS Cloud](https://github.com/ismaaeelahmed11/devops-learning/tree/main/aws) | VPC architecture, public/private subnets, EC2 and load balancing |
+| [Terraform & Infrastructure as Code](https://github.com/ismaaeelahmed11/devops-learning/tree/main/terraform) | AWS infrastructure provisioning and automated instance configuration |
+| [CI/CD](https://github.com/ismaaeelahmed11/devops-learning/tree/main/cicd) | GitHub Actions workflows for testing and container publishing |
 | [Kubernetes](https://github.com/ismaaeelahmed11/devops-learning/tree/main/k8s) | Workload deployment, networking, configuration, storage and access-control exercises |
+
+---
+
+## What I'm Focused On
+
+I'm continuing to develop my skills in cloud infrastructure, Kubernetes operations, infrastructure automation and deployment reliability.
+
+My focus is on engineering environments that are understandable, maintainable and observable — and on strengthening the practical skills required to operate infrastructure reliably.
+
+I'm particularly interested in working with teams responsible for cloud platforms, CI/CD pipelines, container infrastructure, Kubernetes and infrastructure automation.
 
 ---
 
 ## Opportunities & Contact
 
-I'm looking to join an engineering team where I can contribute to infrastructure automation, deployment workflows and troubleshooting while developing experience supporting production systems.
+I'm open to opportunities in **DevOps Engineering, Cloud Engineering, Platform Engineering and Infrastructure Engineering** across the United Kingdom.
 
-**Roles of interest:** Junior DevOps Engineer · Junior Cloud Engineer · Junior Platform Engineer
+I bring hands-on portfolio experience in AWS infrastructure, Terraform automation, Kubernetes administration, CI/CD and Linux troubleshooting, alongside a strong interest in developing and supporting production engineering systems.
 
-**Location:** United Kingdom
+**Location:** United Kingdom  
+**Work eligibility:** British citizen — no visa sponsorship required
 
 - **LinkedIn:** [linkedin.com/in/ismaaeelahmed](https://www.linkedin.com/in/ismaaeelahmed)
 - **Email:** [ismaaeelahmed11@gmail.com](mailto:ismaaeelahmed11@gmail.com)
+- **GitHub:** [github.com/ismaaeelahmed11](https://github.com/ismaaeelahmed11)
+
+---
+
+*Building infrastructure. Automating delivery. Understanding systems.*
