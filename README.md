@@ -16,6 +16,8 @@ Each project includes source code, infrastructure configurations, architecture d
 
 ### 01 · [AWS EKS — Kubernetes, GitOps & Monitoring](https://github.com/ismaaeelahmed11/eks-project)
 
+🎬 **[Watch the 2-minute EKS Project Walkthrough](https://youtu.be/RDmnaTi2auE)**
+
 **Infrastructure as Code · Kubernetes · GitOps · Observability · CI/CD**
 
 Built an AWS Kubernetes environment for deploying and operating the IT-Tools application, combining Terraform infrastructure provisioning, HTTPS ingress, GitOps, monitoring and automated security scanning.
@@ -43,6 +45,9 @@ Built an AWS Kubernetes environment for deploying and operating the IT-Tools app
 ---
 
 ### 02 · [AWS ECS Fargate — Container Deployment & Infrastructure Automation](https://github.com/ismaaeelahmed11/devops-learning/tree/main/ecs-project)
+
+
+🎬 **[Watch the AWS ECS Project Walkthrough (2:11)](https://youtu.be/qpIZlJkWmos)**
 
 **AWS Infrastructure · Terraform · Docker · CI/CD · Networking**
 
@@ -72,6 +77,8 @@ Built an end-to-end container deployment for a Go web application on AWS ECS Far
 ---
 
 ### 03 · [Self-Managed Kubernetes — kubeadm, Networking & Cluster Operations](https://github.com/ismaaeelahmed11/kubeadm-kubernetes-lab)
+
+🎬 **[Watch the Kubernetes kubeadm Walkthrough (2:00)](https://youtu.be/a9hATioCGcs)**
 
 **Kubernetes Administration · Linux · Networking · Cluster Operations · Troubleshooting**
 
