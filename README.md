@@ -84,8 +84,6 @@ Built and deployed an **AWS ECS Fargate** environment for a containerised Go app
 
 **Verified outcome:** Deployed and tested the Go application over a custom HTTPS domain using Terraform-managed AWS infrastructure, ECS health checks and CloudWatch logging. The image workflow publishes to ECR; **image publication alone does not automatically roll out a new ECS service revision**.
 
-**Current automation status:** Terraform Apply requires manual triggering, and pull-request validation runs without AWS credentials. The IAM configuration includes restricted ECR publishing permissions, while separate roles and scoped permissions for future Terraform planning and deployment remain to be completed. The original AWS infrastructure was removed after successful demonstrations to control costs.
-
 **[Explore source code, architecture and workflows](https://github.com/ismaaeelahmed11/devops-learning/tree/main/ecs-project)** · **[Watch walkthrough (2:11)](https://youtu.be/qpIZlJkWmos)**
 
 ---
